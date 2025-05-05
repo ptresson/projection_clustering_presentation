@@ -1,0 +1,177 @@
+\documentclass{irdbeamer}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\title{Projections and clusterings}
+\subtitle{Formation IA biodiversité}
+\author[Paul Tresson]{Paul Tresson}
+\date{\today} % or whatever the date you are presenting in is
+\institute[Institut de Recherche pour le Développement]{UMR AMAP}
+
+%\copyrightnotice{Published by Institut de Recherche pour le Développement, with permission}
+
+% %% to add a background image for the title slide, uncomment here
+% \usebackgroundtemplate{
+%   \tikz[overlay, remember picture] \node[at=(current page.center)] {
+%     \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
+%   };
+% }
+\definecolor{C0}{rgb}{0.0,0.3,0.6}
+\definecolor{A0}{rgb}{1.0,0.0,0.0}
+\definecolor{B0}{rgb}{1.0,0.4,0.0}
+\definecolor{A1}{rgb}{1.0,0.1,0.0}
+\definecolor{C1}{rgb}{0.4,0.6,0.3}
+\definecolor{C2}{rgb}{0.2,0.4,0.4}
+
+\def\tdist{%
+    gamma(.5*(1+1))/(sqrt(1*pi)*gamma(.5*1))*((1+x^2/1)^(-.5*(1+1)))%
+    % gamma(.5*(\n+1))/(sqrt(\n*pi)*gamma(.5*\n))*((1+x^2/\n)^(-.5*(\n+1)))%
+}
+
+\begin{document}
+
+\addlogo{img/IRD_banner.png}
+\addlogo{img/AMAP_banner.png}
+%\addlogo{example-image-a}
+\maketitle
+
+\usebackgroundtemplate{}
+
+\section{Projections}
+\subsection{PCA}
+\begin{frame}{PCA}
+
+\end{frame}
+
+\begin{frame}{PCA advantages and drawbacks}
+\begin{columns}
+\begin{column}{0.05\textwidth}
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+\end{column}
+    \column{0.45\linewidth}
+        \textbf{Advantages}
+        \begin{itemize}
+            \item<1-> fast
+            \item<2-> scales well
+            \item<3-> explainatory
+        \end{itemize}
+    \column{0.45\linewidth}
+        \textbf{Drawbacks}
+        \begin{itemize}
+            \item<4-> \textbf{not suited for non-linear data}
+            \item[] 
+            \item[] 
+        \end{itemize}
+\end{columns}
+
+\end{frame}
+
+
+\subsection{UMAP}
+
+\begin{frame}{UMAP and T-SNE}
+\begin{columns}
+    \column{0.5\linewidth}
+        \centering
+        % \include{umap/HD_init}
+        \includegraphics<1>[width=\linewidth]{../../figures/steps/1_all_points.png}%
+        \includegraphics<2>[width=\linewidth]{../../figures/steps/2_sampled.png}%
+        \includegraphics<3>[width=\linewidth]{../../figures/steps/3_knn.png}%
+        \includegraphics<4>[width=\linewidth]{../../figures/steps/4-1_opti.png}%
+        \includegraphics<5>[width=\linewidth]{../../figures/steps/4-2_opti.png}%
+        \includegraphics<6>[width=\linewidth]{../../figures/steps/4-3_opti.png}%
+    \column{0.5\linewidth}
+        \centering
+        % \include{umap/LD_final}
+\end{columns}
+\end{frame}
+
+% \begin{frame}{UMAP: compute similarity scores}
+% \begin{columns}
+%     \column{0.5\linewidth}
+%         \centering
+%         \only<1>{\include{umap/HD_dist1}}
+%         \only<2>{\include{umap/HD_dist2}}
+%         \only<3>{\include{umap/HD_dist1}}
+%     \column{0.5\linewidth}
+%         \centering
+%         \only<1>{\include{umap/compute_dist1}}
+%         \only<2>{\include{umap/compute_dist2}}
+%         \only<3>{\include{umap/compute_dist3}}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}{UMAP: compute displacements}
+% \begin{columns}
+%     \column{0.5\linewidth}
+%         \centering
+%         \include{umap/HD_dist1}
+%     \column{0.5\linewidth}
+%         \centering
+%         \include{umap/LD_init}
+% \end{columns}
+% \end{frame}
+
+% \begin{frame}{UMAP: update}
+% \begin{columns}
+%     \column{0.5\linewidth}
+%         \centering
+%         \include{umap/HD_dist1}
+%     \column{0.5\linewidth}
+%         \centering
+%         \include{umap/LD_update}
+% \end{columns}
+% \end{frame}
+
+\begin{frame}{UMAP vs. T-SNE}
+\begin{columns}
+\begin{column}{0.05\textwidth}
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+\end{column}
+    \column{0.45\linewidth}
+        \textbf{UMAP}
+        \begin{itemize}
+            \item<1-> graph theory, fuzzy logic
+            \item<2-> determinist initialization
+            \item<3-> $log_2$ similarity scores
+            \item<4-> update by pairs 
+            \item[$\rightarrow$]<4-> scales well for large datasets
+        \end{itemize}
+    \column{0.45\linewidth}
+        \textbf{T-SNE}
+        \begin{itemize}
+            \item<1-> probabilities
+            \item<2-> random initialization
+            \item<3-> gaussian distribution similarity
+            \item<4-> update all points
+            \item[]<4->
+        \end{itemize}
+\end{columns}
+
+    
+\end{frame}
+
+\section{Clustering}
+
+\subsection{K-means}
+\begin{frame}{K-means}
+    
+\end{frame}
+
+\subsection{DBSCAN}
+\begin{frame}{DBSCAN}
+    
+\end{frame}
+
+
+\end{document}
