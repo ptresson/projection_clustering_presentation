@@ -1,6 +1,36 @@
 \documentclass{irdbeamer}
+
+\usepackage[
+    backend=biber,
+    style=authoryear-comp,
+    maxcitenames=2, % max 2 authors before switching to et al.
+    maxbibnames=4,
+    uniquelist=false, % stays et al. when almost the same authors
+    uniquename=false, % dose not bother when first name not written the same way everywhere
+    date=year, % month does not appear in bibliography
+    natbib=true, % use natbib synthax
+    url=false, % remove url
+    eprint=false % remove eprint
+]{biblatex}
+
+\addbibresource{refs.bib}
+
+% % Define the color for citations
+% \definecolor{citecolor}{gray}{0.5} % 0.5 is the gray level, adjust as needed
+
+% % Redefine citation commands to include the color
+% \renewcommand{\cite}[1]{\textcolor{citecolor}{\citet{#1}}}
+% \renewcommand{\citep}[1]{\textcolor{citecolor}{\citep{#1}}}
+% \renewcommand{\citet}[1]{\textcolor{citecolor}{\citet{#1}}}
+
+\let\oldcite=\cite                                                              
+\renewcommand{\cite}[1]{\textcolor[rgb]{.5,.5,.7}{\oldcite{#1}}}
+\let\oldcitep=\citep                                                              
+\renewcommand{\citep}[1]{\textcolor[rgb]{.5,.5,.7}{\oldcitep{#1}}}
+
+
 \usepackage{tikz}
-\usepackage{pgfplots}
+
 
 \title{Projections and clusterings}
 \subtitle{Formation IA biodiversité}
@@ -16,116 +46,18 @@
 %     \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
 %   };
 % }
-\definecolor{C0}{rgb}{0.0,0.3,0.6}
-\definecolor{A0}{rgb}{1.0,0.0,0.0}
-\definecolor{B0}{rgb}{1.0,0.4,0.0}
-\definecolor{A1}{rgb}{1.0,0.1,0.0}
-\definecolor{C1}{rgb}{0.4,0.6,0.3}
-\definecolor{C2}{rgb}{0.2,0.4,0.4}
 
-\def\tdist{%
-    gamma(.5*(1+1))/(sqrt(1*pi)*gamma(.5*1))*((1+x^2/1)^(-.5*(1+1)))%
-    % gamma(.5*(\n+1))/(sqrt(\n*pi)*gamma(.5*\n))*((1+x^2/\n)^(-.5*(\n+1)))%
-}
+
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
 
 \begin{document}
-
-\addlogo{img/IRD_banner.png}
-\addlogo{img/AMAP_banner.png}
+\addlogo{logos/IRD_banner.png}
+\addlogo{logos/AMAP_banner.png}
 %\addlogo{example-image-a}
 \maketitle
 
 \usebackgroundtemplate{}
-
-\section{Projections}
-\subsection{PCA}
-\begin{frame}{PCA}
-
-\end{frame}
-
-\begin{frame}{PCA advantages and drawbacks}
-\begin{columns}
-\begin{column}{0.05\textwidth}
-\begin{itemize}
-    \item[] 
-    \item[] 
-    \item[] 
-\end{itemize}
-\end{column}
-    \column{0.45\linewidth}
-        \textbf{Advantages}
-        \begin{itemize}
-            \item<1-> fast
-            \item<2-> scales well
-            \item<3-> explainatory
-        \end{itemize}
-    \column{0.45\linewidth}
-        \textbf{Drawbacks}
-        \begin{itemize}
-            \item<4-> \textbf{not suited for non-linear data}
-            \item[] 
-            \item[] 
-        \end{itemize}
-\end{columns}
-
-\end{frame}
-
-
-\subsection{UMAP}
-
-\begin{frame}{UMAP and T-SNE}
-\begin{columns}
-    \column{0.5\linewidth}
-        \centering
-        % \include{umap/HD_init}
-        \includegraphics<1>[width=\linewidth]{../../figures/steps/1_all_points.png}%
-        \includegraphics<2>[width=\linewidth]{../../figures/steps/2_sampled.png}%
-        \includegraphics<3>[width=\linewidth]{../../figures/steps/3_knn.png}%
-        \includegraphics<4>[width=\linewidth]{../../figures/steps/4-1_opti.png}%
-        \includegraphics<5>[width=\linewidth]{../../figures/steps/4-2_opti.png}%
-        \includegraphics<6>[width=\linewidth]{../../figures/steps/4-3_opti.png}%
-    \column{0.5\linewidth}
-        \centering
-        % \include{umap/LD_final}
-\end{columns}
-\end{frame}
-
-% \begin{frame}{UMAP: compute similarity scores}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \only<1>{\include{umap/HD_dist1}}
-%         \only<2>{\include{umap/HD_dist2}}
-%         \only<3>{\include{umap/HD_dist1}}
-%     \column{0.5\linewidth}
-%         \centering
-%         \only<1>{\include{umap/compute_dist1}}
-%         \only<2>{\include{umap/compute_dist2}}
-%         \only<3>{\include{umap/compute_dist3}}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}{UMAP: compute displacements}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/HD_dist1}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/LD_init}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}{UMAP: update}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/HD_dist1}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/LD_update}
-% \end{columns}
-% \end{frame}
 
 \begin{frame}{UMAP vs. T-SNE}
 \begin{columns}
@@ -171,6 +103,24 @@
 \subsection{DBSCAN}
 \begin{frame}{DBSCAN}
     
+\end{frame}
+
+
+
+\begin{frame}[plain]
+    \Huge{\textbf{Thanks for you attention !}}
+    
+    \vfill
+    
+    \LARGE{\textbf{Let's practice !}}
+\end{frame}
+
+\appendix
+% \printbibliography
+% [heading=none]
+\begin{frame}[allowframebreaks]{References}
+\setbeamertemplate{bibliography item}{}
+    {\footnotesize \printbibliography[heading=none]}
 \end{frame}
 
 
