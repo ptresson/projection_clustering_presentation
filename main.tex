@@ -4,7 +4,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{animate}
-\usepackage{multimedia}
+\usepackage{listings}
 
 \title{Projections and clusterings}
 \subtitle{Formation IA biodiversité}
@@ -32,20 +32,115 @@
     % gamma(.5*(\n+1))/(sqrt(\n*pi)*gamma(.5*\n))*((1+x^2/\n)^(-.5*(\n+1)))%
 }
 
+\usepackage[
+    backend=biber,
+    style=authoryear-comp,
+    maxcitenames=2, % max 2 authors before switching to et al.
+    maxbibnames=4,
+    uniquelist=false, % stays et al. when almost the same authors
+    uniquename=false, % dose not bother when first name not written the same way everywhere
+    date=year, % month does not appear in bibliography
+    natbib=true, % use natbib synthax
+    url=false, % remove url
+    eprint=false % remove eprint
+]{biblatex}
+
+\addbibresource{refs.bib}
+
+% % Define the color for citations
+% \definecolor{citecolor}{gray}{0.5} % 0.5 is the gray level, adjust as needed
+
+% % Redefine citation commands to include the color
+% \renewcommand{\cite}[1]{\textcolor{citecolor}{\citet{#1}}}
+% \renewcommand{\citep}[1]{\textcolor{citecolor}{\citep{#1}}}
+% \renewcommand{\citet}[1]{\textcolor{citecolor}{\citet{#1}}}
+
+\let\oldcite=\cite                                                              
+\renewcommand{\cite}[1]{\textcolor[rgb]{.5,.5,.7}{\oldcite{#1}}}
+\let\oldcitep=\citep                                                              
+\renewcommand{\citep}[1]{\textcolor[rgb]{.5,.5,.7}{\oldcitep{#1}}}
+
 \begin{document}
 
 \addlogo{logos/IRD_banner.png}
 \addlogo{logos/AMAP_banner.png}
-%\addlogo{example-image-a}
 \maketitle
 
 \usebackgroundtemplate{}
 
+\section{Introduction}
+
+\begin{frame}{Visualize what is happening in higher dimensions}
+    \centering
+    \begin{tabular}{ccc}
+        \includegraphics[width=0.2\textwidth]{./figs/lter_penguins.png}&
+        \includegraphics[width=0.5\textwidth]{./figs/penguins.png}&
+        \includegraphics[width=0.2\textwidth]{./figs/culmen_depth.png}\\
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Visualize what is happening in higher dimensions}
+    \centering
+        \includegraphics<1>[width=0.5\textwidth]{./figs/mnist.png}%
+        \includegraphics<2>[width=0.5\textwidth]{./figs/mnist_pairplot.png}%
+        \includegraphics<3>[width=0.5\textwidth]{./figs/mnist_umap.png}%
+\end{frame}
+
+
+
 \section{Projections}
 \subsection{PCA}
+
 \begin{frame}{PCA}
+    \centering
+        \includegraphics<1>[width=0.5\textwidth]{./figs/pca1.png}%
+        \includegraphics<2>[width=0.5\textwidth]{./figs/pca2.png}%
+\end{frame}
+
+\begin{frame}{PCA calculation}
+$$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmatrix}$$
+\end{frame}
+
+\begin{frame}{PCA calculation}
+   $$C = \frac{1}{n-1}X^TX$$ 
+\end{frame}
+
+\begin{frame}{PCA calculation}
+   $$C = \begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix}$$ 
+\end{frame}
+
+\begin{frame}{PCA calculation}
+   $$Cv = \lambda v$$ 
+   $$\begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \lambda \begin{bmatrix} v_x \\ v_y \end{bmatrix}$$
+\end{frame}
+
+\begin{frame}{PCA calculation}
+   $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
+\end{frame}
+
+\begin{frame}{PCA}
+    % \begin{lstlisting}[language=Python]
+% normalized_data = (points - np.min(points, axis=0)) / (
+    % np.max(points, axis=0) - np.min(points, axis=0)
+% )
+% mean = np.mean(normalized_data, axis=0)
+% cov = np.cov(normalized_data, rowvar=False)
+
+% # Calculate eigenvalues and eigenvectors of the covariance matrix
+% eigvals, eigvecs = np.linalg.eig(cov)
+
+% # Scale eigenvectors
+% scaled_eigvecs = eigvecs * np.sqrt(eigvals)
+    % \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}{PCA}
+    \centering
+        \includegraphics[width=0.5\textwidth]{./figs/pca3.png}%
+\end{frame}
+
+
 
 \begin{frame}{PCA advantages and drawbacks}
 \begin{columns}
@@ -71,32 +166,19 @@
             \item[] 
         \end{itemize}
 \end{columns}
-
 \end{frame}
 
+\begin{frame}{Non linear data}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.7\textwidth]{./figs/non_linearity.png}
+    \caption{\tiny Figure from \cite{du2019dimensionality}}
+        
+    \end{figure}
+\end{frame}
 
 \subsection{UMAP}
 
-% \begin{frame}{UMAP and T-SNE}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         % \include{umap/HD_init}
-%         \includegraphics<1>[width=\linewidth]{../../figures/steps/1_all_points.png}%
-%         \includegraphics<2>[width=\linewidth]{../../figures/steps/2_sampled.png}%
-%         \includegraphics<3>[width=\linewidth]{../../figures/steps/3_knn.png}%
-%         \includegraphics<4>[width=\linewidth]{../../figures/steps/3_knn.png}%
-%         \includegraphics<5>[width=\linewidth]{../../figures/steps/4-1_opti.png}%
-%         \includegraphics<6>[width=\linewidth]{../../figures/steps/4-2_opti.png}%
-%         \includegraphics<7>[width=\linewidth]{../../figures/steps/4-3_opti.png}%
-%     \column{0.5\linewidth}
-%         \centering
-%         \includegraphics<4>[width=\linewidth]{../../figures/steps/4-1_spectral.png}%
-%         \includegraphics<5>[width=\linewidth]{../../figures/steps/4-1_spectral.png}%
-%         \includegraphics<6>[width=\linewidth]{../../figures/steps/4-1_spectral.png}%
-%         % \include{umap/LD_final}
-% \end{columns}
-% \end{frame}
 
 % \begin{frame}{UMAP: compute similarity scores}
 % \begin{columns}
@@ -135,6 +217,10 @@
 % \end{columns}
 % \end{frame}
 
+\begin{frame}{Mammoth example}
+    
+\end{frame}
+
 \begin{frame}{UMAP vs. T-SNE}
 \begin{columns}
 \begin{column}{0.05\textwidth}
@@ -162,17 +248,18 @@
             \item<2-> random initialization
             \item<3-> gaussian distribution similarity
             \item<4-> update all points
-            \item[]<4->
+            \item[]<4-> scales less
         \end{itemize}
 \end{columns}
 \end{frame}
 
-\begin{frame}{Suivi dans le temps}
-    %%% ffmpeg -i animation.gif -vsync 0 %04d.png
-    \centering
-  \animategraphics[autoplay,loop,controls,width=.7\linewidth]{20}{gif/}{0001}{0156}
-  % \animategraphics[loop,width=4cm]{10}{gif/}{0000}{0050}
-\end{frame}
+% \begin{frame}{Animation}
+%     %%% ffmpeg -i animation.gif -vsync 0 %04d.png
+%     \centering
+%   \animategraphics[autoplay,loop,controls,width=.7\linewidth]{20}{gif/}{0001}{0156}
+%   % \animategraphics[loop,width=4cm]{10}{gif/}{0000}{0050}
+% \end{frame}
+
 \section{Clustering}
 
 \subsection{K-means}
@@ -180,9 +267,43 @@
     
 \end{frame}
 
-\subsection{DBSCAN}
-\begin{frame}{DBSCAN}
+\subsection{HDBSCAN}
+\begin{frame}{HDBSCAN}
+    \centering
+    \includegraphics<1>[width=.7\textwidth]{./figs/hdbscan/1.png}%
+    \includegraphics<2>[width=.7\textwidth]{./figs/hdbscan/2.png}%
+    \includegraphics<3>[width=.7\textwidth]{./figs/hdbscan/3.png}%
+    \includegraphics<4>[width=.7\textwidth]{./figs/hdbscan/4.png}%
+    \includegraphics<5>[width=.7\textwidth]{./figs/hdbscan/5.png}%
+    \includegraphics<6>[width=.7\textwidth]{./figs/hdbscan/6.png}%
+    \includegraphics<7>[width=.7\textwidth]{./figs/hdbscan/7.png}%
+    \includegraphics<8>[width=.7\textwidth]{./figs/hdbscan/8.png}%
+    \includegraphics<9>[width=.7\textwidth]{./figs/hdbscan/9.png}%
+    \includegraphics<10>[width=.7\textwidth]{./figs/hdbscan/10.png}%
+    \includegraphics<11>[width=.7\textwidth]{./figs/hdbscan/11.png}%
+    \includegraphics<12>[width=.7\textwidth]{./figs/hdbscan/12.png}%
+\end{frame}
+
+\begin{frame}{A lot of options !}
+    \centering
+    \includegraphics[width=.7\textwidth]{./figs/all_clusterings.png}
+\end{frame}
+
+
+\begin{frame}[plain]
+    \Huge{\textbf{Thanks for you attention !}}
     
+    \vfill
+    
+    \LARGE{\textbf{Let's practice !}}
+\end{frame}
+
+\appendix
+% \printbibliography
+% [heading=none]
+\begin{frame}[allowframebreaks]{References}
+\setbeamertemplate{bibliography item}{}
+    {\footnotesize \printbibliography[heading=none]}
 \end{frame}
 
 
