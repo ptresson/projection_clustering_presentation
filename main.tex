@@ -4,7 +4,8 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{animate}
-\usepackage{listings}
+% \usepackage{listings}
+% \usepackage{minted}
 
 \title{Projections and clusterings}
 \subtitle{Formation IA biodiversité}
@@ -118,22 +119,34 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
    $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
 \end{frame}
 
-\begin{frame}{PCA}
-    % \begin{lstlisting}[language=Python]
-% normalized_data = (points - np.min(points, axis=0)) / (
-    % np.max(points, axis=0) - np.min(points, axis=0)
-% )
-% mean = np.mean(normalized_data, axis=0)
-% cov = np.cov(normalized_data, rowvar=False)
+% \begin{frame}[fragile]{PCA}
+%     % \begin{lstlisting}[language=Python]
+% % normalized_data = (points - np.min(points, axis=0)) / (
+%     % np.max(points, axis=0) - np.min(points, axis=0)
+% % )
+% % mean = np.mean(normalized_data, axis=0)
+% % cov = np.cov(normalized_data, rowvar=False)
 
-% # Calculate eigenvalues and eigenvectors of the covariance matrix
-% eigvals, eigvecs = np.linalg.eig(cov)
+% % # Calculate eigenvalues and eigenvectors of the covariance matrix
+% % eigvals, eigvecs = np.linalg.eig(cov)
 
-% # Scale eigenvectors
-% scaled_eigvecs = eigvecs * np.sqrt(eigvals)
-    % \end{lstlisting}
+% % # Scale eigenvectors
+% % scaled_eigvecs = eigvecs * np.sqrt(eigvals)
+%     % \end{lstlisting}
 
-\end{frame}
+%     \rule{\textwidth}{1pt}
+% \scriptsize
+% \begin{minted}{python}
+%     # This program adds two numbers
+%     num1 = 1.5
+%     num2 = 6.3
+%     # Add two numbers
+%     sum = num1 + num2
+%     # Display the sum
+%     print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+% \end{minted}
+% \rule{\textwidth}{1pt}
+% \end{frame}
 
 \begin{frame}{PCA}
     \centering
@@ -173,52 +186,38 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
     \centering
     \includegraphics[width=.7\textwidth]{./figs/non_linearity.png}
     \caption{\tiny Figure from \cite{du2019dimensionality}}
-        
     \end{figure}
 \end{frame}
 
 \subsection{UMAP}
 
 
-% \begin{frame}{UMAP: compute similarity scores}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \only<1>{\include{umap/HD_dist1}}
-%         \only<2>{\include{umap/HD_dist2}}
-%         \only<3>{\include{umap/HD_dist1}}
-%     \column{0.5\linewidth}
-%         \centering
-%         \only<1>{\include{umap/compute_dist1}}
-%         \only<2>{\include{umap/compute_dist2}}
-%         \only<3>{\include{umap/compute_dist3}}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}{UMAP: compute displacements}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/HD_dist1}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/LD_init}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}{UMAP: update}
-% \begin{columns}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/HD_dist1}
-%     \column{0.5\linewidth}
-%         \centering
-%         \include{umap/LD_update}
-% \end{columns}
-% \end{frame}
+\begin{frame}{Mammoth example}
+    \centering
+    \includegraphics<1>[width=.6\textwidth]{./figs/mammoth/3d_single.png}%
+    \includegraphics<2>[width=.6\textwidth]{./figs/mammoth/3d_color.png}%
+\end{frame}
 
 \begin{frame}{Mammoth example}
-    
+    \centering
+    \includegraphics[width=.6\textwidth]{./figs/mammoth/pca.png}
+\end{frame}
+
+\begin{frame}{Mammoth example}
+    \centering
+    \includegraphics<1>[width=.6\textwidth]{./figs/mammoth/n5.png}%
+    \includegraphics<2>[width=.6\textwidth]{./figs/mammoth/n7.png}%
+    \includegraphics<3>[width=.6\textwidth]{./figs/mammoth/n9.png}%
+    \includegraphics<4>[width=.6\textwidth]{./figs/mammoth/n10.png}%
+    \includegraphics<5>[width=.6\textwidth]{./figs/mammoth/n50.png}%
+    \includegraphics<6>[width=.6\textwidth]{./figs/mammoth/n100.png}%
+    \includegraphics<7>[width=.6\textwidth]{./figs/mammoth/n500.png}%
+    \includegraphics<8>[width=.6\textwidth]{./figs/mammoth/n1000.png}%
+\end{frame}
+
+\begin{frame}{Mammoth example}
+    \centering
+    \includegraphics[width=.8\textwidth]{./figs/mammoth/combined_scatter_plots.png}
 \end{frame}
 
 \begin{frame}{UMAP vs. T-SNE}
@@ -264,7 +263,49 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
 
 \subsection{K-means}
 \begin{frame}{K-means}
+    \centering
+    \includegraphics<1>[width=.7\textwidth]{./figs/kmeans01.png}%
+    \includegraphics<2>[width=.7\textwidth]{./figs/kmeans02.png}%
+    \includegraphics<3>[width=.7\textwidth]{./figs/kmeans03.png}%
+    \includegraphics<4>[width=.7\textwidth]{./figs/kmeans04.png}%
+    \includegraphics<5>[width=.7\textwidth]{./figs/kmeans05.png}%
+    \includegraphics<6>[width=.7\textwidth]{./figs/kmeans06.png}%
+    \includegraphics<7>[width=.7\textwidth]{./figs/kmeans07.png}%
+\end{frame}
+
+\begin{frame}{Determine the good K ? Elbow method}
     
+\end{frame}
+
+\begin{frame}{K-means advantages and drawbacks}
+\begin{columns}
+\begin{column}{0.01\textwidth}
+\begin{itemize}
+    \item[] 
+    \item[] 
+    \item[] 
+    \item[] 
+\end{itemize}
+\end{column}
+    \column{0.3\linewidth}
+        \textbf{Advantages}
+        \begin{itemize}
+            \item<1-> fast
+            \item<2-> scales well
+            \item<3-> converges well
+            \item<4-> robust
+        \end{itemize}
+    \column{0.5\linewidth}
+        \textbf{Drawbacks}
+        \begin{itemize}
+            \item<5-> \textbf{not suited for non-linear data}
+            \item[\rightarrow]<6-> Density based clustering 
+            \item[] 
+            \item[] 
+        \end{itemize}
+    \column{0.2\linewidth}
+    \includegraphics<5->[height=.8\textheight]{./figs/kmeans-non-linearity.png}
+\end{columns}
 \end{frame}
 
 \subsection{HDBSCAN}
@@ -286,41 +327,17 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
 
 \begin{frame}{A lot of options !}
     \centering
-    \vspace{-1cm}
-    \includegraphics[width=.9\textwidth]{./figs/all_clusterings.png}
+    \vspace{-.2cm}
+    \includegraphics[width=.8\textwidth]{./figs/all_clusterings.png}
 \end{frame}
 
 \begin{frame}{Usefull ressources}
 
 \begin{itemize}
-    \item \textt{scikit-learn} docs !
+    \item \texttt{scikit-learn} docs !
     \item \href{https://www.youtube.com/@Deepia-ls2fo}{deepia}
     \item \href{https://www.youtube.com/@statquest}{StatQuest}
 \end{itemize}
-% \begin{columns}[t]
-%     \column{.5\linewidth}
-%     \textbf{State of the art}
-%     \begin{itemize}
-%         \item \href{https://huggingface.co/}{Huggingface}
-%         \item \href{https://paperswithcode.com/sota}{PapersWithCode}
-%     \end{itemize}
-%     \textbf{Getting started}
-%     \begin{itemize}
-%         \item \href{https://docs.pytorch.org/tutorials/}{Pytorch}
-%         \item \href{https://keras.io/getting_started/}{Keras}
-%     \end{itemize}
-%     \column{.5\linewidth}
-%     \textbf{Understanding papers}
-%     \begin{itemize}
-%         \item \href{https://www.youtube.com/@YannicKilcher}{Yannic Kilcher}
-%         \item \href{https://www.youtube.com/@AICoffeeBreak}{AI coffe break}
-%     \end{itemize}
-%     \textbf{Understanding visually}
-%     \begin{itemize}
-%         \item \href{https://www.youtube.com/@3blue1brown}{3blue1brown}
-%         \item \href{https://www.youtube.com/@Deepia-ls2fo}{deepia}
-%     \end{itemize}
-% \end{columns}
 \end{frame}
 
 \begin{frame}[plain]
