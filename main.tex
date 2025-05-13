@@ -191,20 +191,45 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
 
 \subsection{UMAP}
 
+\begin{frame}{How to work with non linear data}
+    \begin{enumerate}
+        \item Find a good representation of the data in high dimension
+        \item Fit a good representation of in low dimension
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Classics}
+    \begin{itemize}
+        \item<1->\textbf{SNE} (Stochastic Neighbor Embedding) \cite{hinton2002stochastic}
+        \item<2->\textbf{T-SNE} (T-distributed SNE) \cite{van2008visualizing}
+        \item<3->\textbf{UMAP} (Uniform Manifold Approximation and Projection) \cite{mcinnes2018umap}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{UMAP : Finding high dimension graph}
+    
+\end{frame}
+
+\begin{frame}{UMAP : Fitting low dimensional representation}
+    
+\end{frame}
 
 \begin{frame}{Mammoth example}
     \centering
+    \vspace{-.5cm}
     \includegraphics<1>[width=.6\textwidth]{./figs/mammoth/3d_single.png}%
     \includegraphics<2>[width=.6\textwidth]{./figs/mammoth/3d_color.png}%
 \end{frame}
 
 \begin{frame}{Mammoth example}
     \centering
+    \vspace{-.5cm}
     \includegraphics[width=.6\textwidth]{./figs/mammoth/pca.png}
 \end{frame}
 
 \begin{frame}{Mammoth example}
     \centering
+    \vspace{-.5cm}
     \includegraphics<1>[width=.6\textwidth]{./figs/mammoth/n5.png}%
     \includegraphics<2>[width=.6\textwidth]{./figs/mammoth/n7.png}%
     \includegraphics<3>[width=.6\textwidth]{./figs/mammoth/n9.png}%
