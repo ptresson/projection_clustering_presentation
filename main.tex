@@ -259,8 +259,6 @@
     \includegraphics<5>[width=\textwidth]{./figs/umap/4-2_spectral.png}%
     \includegraphics<6>[width=\textwidth]{./figs/umap/4-3_spectral.png}%
     \includegraphics<7->[width=\textwidth]{./figs/umap/4-4_spectral.png}%
-
-\only<8>{$\rightarrow$ Update with cost function so that neighours in HD are neighours in LD}
 \end{column}
 \end{columns}
 \end{frame}
@@ -328,6 +326,15 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}{Scaling}
+    \vspace{-.5cm}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{./figs/performance_umap.png}
+    \caption{\tiny Figure from \href{https://umap-learn.readthedocs.io/en/latest/benchmarking.html}{umap-learn documentation}}
+    \end{figure}
+\end{frame}
+
 % \begin{frame}{Animation}
 %     %%% ffmpeg -i animation.gif -vsync 0 %04d.png
 %     \centering
@@ -350,7 +357,23 @@
 \end{frame}
 
 \begin{frame}{Determine the good K ? Elbow method}
-    
+    \vspace{-.5cm}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.5\textwidth]{./figs/elbow.png}
+    \caption{\tiny Figure from \href{https://stackoverflow.com/questions/19197715/scikit-learn-k-means-elbow-criterion}{SO}}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Determine the good K ? Silouhette}
+    \vspace{-.5cm}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.6\textwidth]{./figs/silouhette.png}
+    \includegraphics[width=.6\textwidth]{./figs/silouhette2.png}
+    \caption{\tiny Figures from scikit-learn documentation}
+    % \caption{\tiny Figures from \href{https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py}{scikit-learn documentation}}
+    \end{figure}
 \end{frame}
 
 \begin{frame}{K-means advantages and drawbacks}
