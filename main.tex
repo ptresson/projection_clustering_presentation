@@ -99,25 +99,50 @@
 \end{frame}
 
 \begin{frame}{PCA calculation}
-$$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmatrix}$$
-\end{frame}
-
-\begin{frame}{PCA calculation}
+    \scriptsize
+    \begin{columns}
+\begin{column}{0.25\textwidth}
+    \only<1->{
+    $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmatrix}$$
+    }
+\end{column}
+\begin{column}{0.25\textwidth}
+    \only<2->{
    $$C = \frac{1}{n-1}X^TX$$ 
-\end{frame}
-
-\begin{frame}{PCA calculation}
    $$C = \begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix}$$ 
-\end{frame}
-
-\begin{frame}{PCA calculation}
+    }
+\end{column}
+\begin{column}{0.25\textwidth}
+    \only<3->{
    $$Cv = \lambda v$$ 
    $$\begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \lambda \begin{bmatrix} v_x \\ v_y \end{bmatrix}$$
+    }
+\end{column}
+\begin{column}{0.25\textwidth}
+    \only<4->{
+   $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
+    }
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{PCA calculation}
-   $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
+\centering
+    \includegraphics[width=.8\textwidth]{./figs/pca_numpy.png}
 \end{frame}
+
+% \begin{frame}{PCA calculation}
+%    $$C = \begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix}$$ 
+% \end{frame}
+
+% \begin{frame}{PCA calculation}
+%    $$Cv = \lambda v$$ 
+%    $$\begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \lambda \begin{bmatrix} v_x \\ v_y \end{bmatrix}$$
+% \end{frame}
+
+% \begin{frame}{PCA calculation}
+%    $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
+% \end{frame}
 
 % \begin{frame}[fragile]{PCA}
 %     % \begin{lstlisting}[language=Python]
@@ -148,10 +173,10 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
 % \rule{\textwidth}{1pt}
 % \end{frame}
 
-\begin{frame}{PCA}
-    \centering
-        \includegraphics[width=0.5\textwidth]{./figs/pca3.png}%
-\end{frame}
+% \begin{frame}{PCA}
+%     \centering
+%         \includegraphics[width=0.5\textwidth]{./figs/pca3.png}%
+% \end{frame}
 
 
 
@@ -207,11 +232,37 @@ $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmat
 \end{frame}
 
 \begin{frame}{UMAP : Finding high dimension graph}
-    
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/umap/1_all_points.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/umap/2_sampled.png}%
+    \includegraphics<3>[width=\textwidth]{./figs/umap/3_knn.png}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{UMAP : Fitting low dimensional representation}
-    
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/umap/3_knn.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/umap/4-1_opti.png}%
+    \includegraphics<3>[width=\textwidth]{./figs/umap/4-2_opti.png}%
+    \includegraphics<4->[width=\textwidth]{./figs/umap/4-3_opti.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1-4>[width=\textwidth]{./figs/umap/4-1_spectral.png}%
+    \includegraphics<5>[width=\textwidth]{./figs/umap/4-2_spectral.png}%
+    \includegraphics<6>[width=\textwidth]{./figs/umap/4-3_spectral.png}%
+    \includegraphics<7->[width=\textwidth]{./figs/umap/4-4_spectral.png}%
+
+\only<8>{$\rightarrow$ Update with cost function so that neighours in HD are neighours in LD}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Mammoth example}
