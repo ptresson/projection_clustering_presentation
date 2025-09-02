@@ -8,7 +8,7 @@
 % \usepackage{minted}
 
 \title{Projections and clusterings}
-\subtitle{AI for ecologists}
+\subtitle{Master MIASHS}
 \author[Paul Tresson]{Paul Tresson}
 \date{21/05/25} % or whatever the date you are presenting in is
 % \institute[Institut de Recherche pour le Développement]{UMR AMAP}
@@ -349,92 +349,10 @@
 %   % \animategraphics[loop,width=4cm]{10}{gif/}{0000}{0050}
 % \end{frame}
 
-\section{Clustering}
-
-\subsection{K-means}
-\begin{frame}{K-means}
-    \centering
-    \includegraphics<1>[width=.7\textwidth]{./figs/kmeans01.png}%
-    \includegraphics<2>[width=.7\textwidth]{./figs/kmeans02.png}%
-    \includegraphics<3>[width=.7\textwidth]{./figs/kmeans03.png}%
-    \includegraphics<4>[width=.7\textwidth]{./figs/kmeans04.png}%
-    \includegraphics<5>[width=.7\textwidth]{./figs/kmeans05.png}%
-    \includegraphics<6>[width=.7\textwidth]{./figs/kmeans06.png}%
-    \includegraphics<7>[width=.7\textwidth]{./figs/kmeans07.png}%
-\end{frame}
-
-\begin{frame}{Determine the good K ? Elbow method}
-    \vspace{-.5cm}
-    \begin{figure}
-    \centering
-    \includegraphics[width=.5\textwidth]{./figs/elbow.png}
-    \caption{\tiny Figure from \href{https://stackoverflow.com/questions/19197715/scikit-learn-k-means-elbow-criterion}{SO}}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Determine the good K ? Silouhette}
-    \vspace{-.5cm}
-    \begin{figure}
-    \centering
-    \includegraphics[width=.6\textwidth]{./figs/silouhette.png}
-    \includegraphics[width=.6\textwidth]{./figs/silouhette2.png}
-    \caption{\tiny Figures from scikit-learn documentation}
-    % \caption{\tiny Figures from \href{https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py}{scikit-learn documentation}}
-    \end{figure}
-\end{frame}
-
-\begin{frame}{K-means advantages and drawbacks}
-\begin{columns}
-\begin{column}{0.01\textwidth}
-\begin{itemize}
-    \item[] 
-    \item[] 
-    \item[] 
-    \item[] 
-\end{itemize}
-\end{column}
-    \column{0.3\linewidth}
-        \textbf{Advantages}
-        \begin{itemize}
-            \item<1-> fast
-            \item<2-> scales well
-            \item<3-> converges well
-            \item<4-> robust
-        \end{itemize}
-    \column{0.5\linewidth}
-        \textbf{Drawbacks}
-        \begin{itemize}
-            \item<5-> \textbf{not suited for non-linear data}
-            \item[\rightarrow]<6-> Density based clustering 
-            \item[] 
-            \item[] 
-        \end{itemize}
-    \column{0.2\linewidth}
-    \includegraphics<5->[height=.8\textheight]{./figs/kmeans-non-linearity.png}
-\end{columns}
-\end{frame}
-
-\subsection{HDBSCAN}
-\begin{frame}{HDBSCAN}
-    \centering
-    \includegraphics<1>[width=.7\textwidth]{./figs/hdbscan/1.png}%
-    \includegraphics<2>[width=.7\textwidth]{./figs/hdbscan/2.png}%
-    \includegraphics<3>[width=.7\textwidth]{./figs/hdbscan/3.png}%
-    \includegraphics<4>[width=.7\textwidth]{./figs/hdbscan/4.png}%
-    \includegraphics<5>[width=.7\textwidth]{./figs/hdbscan/5.png}%
-    \includegraphics<6>[width=.7\textwidth]{./figs/hdbscan/6.png}%
-    \includegraphics<7>[width=.7\textwidth]{./figs/hdbscan/7.png}%
-    \includegraphics<8>[width=.7\textwidth]{./figs/hdbscan/8.png}%
-    \includegraphics<9>[width=.7\textwidth]{./figs/hdbscan/9.png}%
-    \includegraphics<10>[width=.7\textwidth]{./figs/hdbscan/10.png}%
-    \includegraphics<11>[width=.7\textwidth]{./figs/hdbscan/11.png}%
-    \includegraphics<12>[width=.7\textwidth]{./figs/hdbscan/12.png}%
-\end{frame}
-
 \begin{frame}{A lot of options !}
     \centering
     \vspace{-.2cm}
-    \includegraphics[width=.8\textwidth]{./figs/all_clusterings.png}
+    \includegraphics[width=.8\textwidth]{./figs/plot_manifold_sphere.png}
 \end{frame}
 
 \begin{frame}{Useful ressources}
