@@ -27,6 +27,7 @@
 \definecolor{A1}{rgb}{1.0,0.1,0.0}
 \definecolor{C1}{rgb}{0.4,0.6,0.3}
 \definecolor{C2}{rgb}{0.2,0.4,0.4}
+\definecolor{fullblue}{rgb}{0,0,1}
 
 \def\tdist{%
     gamma(.5*(1+1))/(sqrt(1*pi)*gamma(.5*1))*((1+x^2/1)^(-.5*(1+1)))%
@@ -89,101 +90,15 @@
 \end{frame}
 
 
-
-\section{Projections}
-\subsection{Principa Component Analysis}
-
 \begin{frame}{PCA}
-    \centering
-        \includegraphics<1>[width=0.5\textwidth]{./figs/pca1.png}%
-        \includegraphics<2>[width=0.5\textwidth]{./figs/pca2.png}%
-\end{frame}
-
-\begin{frame}{PCA calculation}
-    \scriptsize
-    \begin{columns}
-\begin{column}{0.25\textwidth}
-    \only<1->{
-    $$X = \begin{bmatrix} x_1 & y_1 \\ x_2 & y_2 \\ x_3 & y_3 \\ ... & ... \end{bmatrix}$$
-    }
-\end{column}
-\begin{column}{0.25\textwidth}
-    \only<2->{
-   $$C = \frac{1}{n-1}X^TX$$ 
-   $$C = \begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix}$$ 
-    }
-\end{column}
-\begin{column}{0.25\textwidth}
-    \only<3->{
-   $$Cv = \lambda v$$ 
-   $$\begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \lambda \begin{bmatrix} v_x \\ v_y \end{bmatrix}$$
-    }
-\end{column}
-\begin{column}{0.25\textwidth}
-    \only<4->{
-   $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
-    }
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{PCA calculation}
 \centering
-    \includegraphics[width=.8\textwidth]{./figs/pca_numpy.png}
+    \includegraphics[width=.6\textwidth]{./figs/mnist_pca.png}
 \end{frame}
 
 \begin{frame}{PCA interpretability}
 \centering
     \includegraphics[width=.6\textwidth]{./figs/loadings.png}
 \end{frame}
-
-% \begin{frame}{PCA calculation}
-%    $$C = \begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix}$$ 
-% \end{frame}
-
-% \begin{frame}{PCA calculation}
-%    $$Cv = \lambda v$$ 
-%    $$\begin{bmatrix} \sigma_{x}^2 & \sigma_{xy} \\ \sigma_{yx} & \sigma_{y}^2 \end{bmatrix} \begin{bmatrix} v_x \\ v_y \end{bmatrix} = \lambda \begin{bmatrix} v_x \\ v_y \end{bmatrix}$$
-% \end{frame}
-
-% \begin{frame}{PCA calculation}
-%    $$P = \begin{bmatrix} v_x & v_y \end{bmatrix}$$ 
-% \end{frame}
-
-% \begin{frame}[fragile]{PCA}
-%     % \begin{lstlisting}[language=Python]
-% % normalized_data = (points - np.min(points, axis=0)) / (
-%     % np.max(points, axis=0) - np.min(points, axis=0)
-% % )
-% % mean = np.mean(normalized_data, axis=0)
-% % cov = np.cov(normalized_data, rowvar=False)
-
-% % # Calculate eigenvalues and eigenvectors of the covariance matrix
-% % eigvals, eigvecs = np.linalg.eig(cov)
-
-% % # Scale eigenvectors
-% % scaled_eigvecs = eigvecs * np.sqrt(eigvals)
-%     % \end{lstlisting}
-
-%     \rule{\textwidth}{1pt}
-% \scriptsize
-% \begin{minted}{python}
-%     # This program adds two numbers
-%     num1 = 1.5
-%     num2 = 6.3
-%     # Add two numbers
-%     sum = num1 + num2
-%     # Display the sum
-%     print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
-% \end{minted}
-% \rule{\textwidth}{1pt}
-% \end{frame}
-
-% \begin{frame}{PCA}
-%     \centering
-%         \includegraphics[width=0.5\textwidth]{./figs/pca3.png}%
-% \end{frame}
-
 
 
 \begin{frame}{PCA advantages and drawbacks}
@@ -237,44 +152,13 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{UMAP : Finding high dimension graph}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\centering
-    \includegraphics<1>[width=\textwidth]{./figs/umap/1_all_points.png}%
-    \includegraphics<2>[width=\textwidth]{./figs/umap/2_sampled.png}%
-    \includegraphics<3>[width=\textwidth]{./figs/umap/3_knn.png}%
-\end{column}
-\begin{column}{0.5\textwidth}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{UMAP : Fitting low dimensional representation}
-\begin{columns}
-    \begin{column}[t]{0.5\textwidth}
-\centering
-    \includegraphics<1>[width=\textwidth]{./figs/umap/3_knn.png}%
-    \includegraphics<2>[width=\textwidth]{./figs/umap/4-1_opti.png}%
-    \includegraphics<3>[width=\textwidth]{./figs/umap/4-2_opti.png}%
-    \includegraphics<4->[width=\textwidth]{./figs/umap/4-3_opti.png}%
-\end{column}
-    \begin{column}[t]{0.5\textwidth}
-\centering
-    \includegraphics<1-4>[width=\textwidth]{./figs/umap/4-1_spectral.png}%
-    \includegraphics<5>[width=\textwidth]{./figs/umap/4-2_spectral.png}%
-    \includegraphics<6>[width=\textwidth]{./figs/umap/4-3_spectral.png}%
-    \includegraphics<7->[width=\textwidth]{./figs/umap/4-4_spectral.png}%
-\end{column}
-\end{columns}
-\end{frame}
-
 \begin{frame}{Mammoth example}
     \centering
     \vspace{-.9cm}
     \includegraphics<1>[width=.53\textwidth]{./figs/mammoth/3d_single.png}%
     \includegraphics<2>[width=.53\textwidth]{./figs/mammoth/3d_color.png}%
-    \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}, adatpted from \href{https://www.youtube.com/watch?v=o_cAOa5fMhE}{deepia}}
+    % \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}, adatpted from \href{https://www.youtube.com/watch?v=o_cAOa5fMhE}{deepia}}
+    \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}}
 \end{frame}
 
 \begin{frame}{Mammoth example - PCA}
@@ -283,7 +167,121 @@
     \includegraphics[width=.6\textwidth]{./figs/mammoth/pca.png}
 \end{frame}
 
-\begin{frame}{Mammoth example - UMAP}
+\begin{frame}{Finding high dimension graph}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-color.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-sample.png}%
+    \includegraphics<3>[width=\textwidth]{./figs/steps/hd-graph.png}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textit{Uniform} Manifold Approximation and Projection}
+    \centering
+    \includegraphics<1>[width=.7\textwidth]{./figs/documap/how_umap_works_uniform_distribution_cover.png}%
+    \includegraphics<2>[width=.7\textwidth]{./figs/documap/how_umap_works_local_metric_open_cover.png}%
+    \includegraphics<3>[width=.7\textwidth]{./figs/documap/how_umap_works_fuzzy_open_cover.png}%
+    \includegraphics<4>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_open_cover.png}%
+    \includegraphics<5>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_open_cover-eq.png}%
+    \includegraphics<6>[width=.7\textwidth]{./figs/documap/how_umap_works_raw_graph.png}%
+    \includegraphics<7>[width=.7\textwidth]{./figs/documap/how_umap_works_raw_graph-eq.png}%
+    \includegraphics<8>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_graph.png}%
+    \nonumbernote{\tiny \href{https://umap-learn.readthedocs.io/en/latest/how_umap_works.html}{UMAP documentation}}
+\end{frame}
+
+% \begin{frame}
+% \begin{equation}
+% \sum_{j=1}^k \exp\left(\frac{-\max(0, d(x_i, x_{i_j}) - \rho_i)}{\sigma_i}\right) = \log_2(k)
+% \end{equation}
+% \end{frame}
+
+\begin{frame}{\textit{Uniform} Manifold Approximation and Projection}
+    \centering
+    \includegraphics[width=.5\textwidth]{./figs/umap-topos.png}%
+    \nonumbernote{\tiny \href{https://topos.institute/blog/2024-04-05-understanding-umap/}{Tim Hosgood - Understanding UMAP}}
+\end{frame}
+
+\begin{frame}{Finding high dimension graph}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-sample.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-weightedgraph.png}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1-4>[width=\textwidth]{./figs/steps/hd-weightedgraph.png}%
+    \includegraphics<5>[width=\textwidth]{./figs/steps/hd-pairs.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<3>[width=\textwidth]{./figs/steps/ld.png}%
+    \includegraphics<4>[width=\textwidth]{./figs/steps/ld-graph.png}%
+    \includegraphics<5>[width=\textwidth]{./figs/steps/ld-pairs.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Fitting low dimensional representation}
+    
+    Cross-entropy loss counting \textcolor{red}{positive} and \textcolor{fullblue}{negative} atraction forces
+
+            \begin{equation}
+                C_{UMAP} = \sum_{i \neq j} \textcolor{red}{v_{ij} \log \left( \frac{v_{ij}}{w_{ij}} \right)} + 
+                \textcolor{fullblue}{(1 - v_{ij}) \log \left( \frac{1 - v_{ij}}{1 - w_{ij}} \right)}
+                \label{eq:}
+            \end{equation}
+
+    Optimization with \textbf{Stochastic Gradient Descent}
+\end{frame}
+
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-pairs.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-pairs2.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/ld-loss.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/ld-loss2.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Optimization}
+\centering
+    \includegraphics<1>[width=.6\textwidth]{./figs/fitumap/epoch0.png}%
+    \includegraphics<2>[width=.6\textwidth]{./figs/fitumap/epoch1.png}%
+    \includegraphics<3>[width=.6\textwidth]{./figs/fitumap/epoch2.png}%
+    \includegraphics<4>[width=.6\textwidth]{./figs/fitumap/epoch3.png}%
+    \includegraphics<5>[width=.6\textwidth]{./figs/fitumap/epoch4.png}%
+    \includegraphics<6>[width=.6\textwidth]{./figs/fitumap/epoch5.png}%
+\end{frame}
+
+\begin{frame}{Hyper-parameters}
+\centering
+\begin{itemize}
+    \item number of neighbors
+    \item min distance
+    \item distance metric
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Influence of the number of neighbors}
     \centering
     \vspace{-.5cm}
     \includegraphics<1>[width=.6\textwidth]{./figs/mammoth/n5.png}%
@@ -296,7 +294,7 @@
     \includegraphics<8>[width=.6\textwidth]{./figs/mammoth/n1000.png}%
 \end{frame}
 
-\begin{frame}{Mammoth example - Number of neighbors}
+\begin{frame}{Influence of the number of neighbors}
     \centering
     \includegraphics[width=.8\textwidth]{./figs/mammoth/combined_scatter_plots.png}
 \end{frame}
@@ -365,7 +363,7 @@
 \end{frame}
 
 \begin{frame}[plain]
-    \Huge{\textbf{Thanks for you attention !}}
+    \Huge{\textbf{Thanks for your attention !}}
     
     \vfill
     
