@@ -315,7 +315,7 @@
         \vfill%
         \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi%
         \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi%
-        \usebeamertemplate*{title separator}%
+        % \usebeamertemplate*{title separator}%
         \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi%
         \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi%
         \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi%

@@ -7,20 +7,20 @@
 % \usepackage{listings}
 % \usepackage{minted}
 
-\title{Dimension reduction}
+\title{Dimension reduction : UMAP}
 \subtitle{Master MIASHS}
-\author[Paul Tresson]{Paul Tresson}
+\author[Paul Tresson]{Paul Tresson\\\url{paul.tresson@ird.fr}}
 \date{18/10/25} % or whatever the date you are presenting in is
 % \institute[Institut de Recherche pour le Développement]{UMR AMAP}
 
 %\copyrightnotice{Published by Institut de Recherche pour le Développement, with permission}
 
 % %% to add a background image for the title slide, uncomment here
-% \usebackgroundtemplate{
-%   \tikz[overlay, remember picture] \node[at=(current page.center)] {
-%     \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
-%   };
-% }
+\usebackgroundtemplate{
+  \tikz[overlay, remember picture] \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth,height=\paperheight]{./title.png}
+  };
+}
 \definecolor{C0}{rgb}{0.0,0.3,0.6}
 \definecolor{A0}{rgb}{1.0,0.0,0.0}
 \definecolor{B0}{rgb}{1.0,0.4,0.0}
@@ -71,7 +71,7 @@
 
 \usebackgroundtemplate{}
 
-\section{Introduction}
+% \section{Introduction}
 
 \begin{frame}{Visualize what is happening in higher dimensions}
     \centering
@@ -135,7 +135,15 @@
     \end{figure}
 \end{frame}
 
-\subsection{UMAP}
+
+% \begin{frame}{Non linear data}
+%     \centering
+%     \includegraphics<1>[width=.7\textwidth]{./figs/elhaik2022.png}
+%     \includegraphics<2>[width=.7\textwidth]{./figs/elhaik2022.png}
+%     \includegraphics<3>[width=.7\textwidth]{./figs/elhaik2022.png}
+%     \nonumbernote{\tiny see \cite{elhaik2022principal}}
+% \end{frame}
+
 
 \begin{frame}{How to work with non linear data}
     \begin{enumerate}
@@ -262,25 +270,39 @@
 \end{columns}
 \end{frame}
 
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+    \includegraphics[width=.5\textwidth]{./figs/steps/hd-weightedgraph.png}%
+    \includegraphics[width=.5\textwidth]{./figs/graph_weights1.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics[width=.5\textwidth]{./figs/graph_weights2.png}%
+    \includegraphics[width=.5\textwidth]{./figs/steps/ld-graph.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
 \begin{frame}{Optimization}
 \centering
-    \includegraphics<1>[width=.6\textwidth]{./figs/fitumap/epoch000.png}%
-    \includegraphics<2>[width=.6\textwidth]{./figs/fitumap/epoch001.png}%
-    \includegraphics<3>[width=.6\textwidth]{./figs/fitumap/epoch002.png}%
-    \includegraphics<4>[width=.6\textwidth]{./figs/fitumap/epoch003.png}%
-    \includegraphics<5>[width=.6\textwidth]{./figs/fitumap/epoch004.png}%
-    \includegraphics<6>[width=.6\textwidth]{./figs/fitumap/epoch005.png}%
-    \includegraphics<7>[width=.6\textwidth]{./figs/fitumap/epoch006.png}%
-    \includegraphics<8>[width=.6\textwidth]{./figs/fitumap/epoch007.png}%
-    \includegraphics<9>[width=.6\textwidth]{./figs/fitumap/epoch008.png}%
-    \includegraphics<10>[width=.6\textwidth]{./figs/fitumap/epoch009.png}%
-    \includegraphics<11>[width=.6\textwidth]{./figs/fitumap/epoch010.png}%
-    \includegraphics<12>[width=.6\textwidth]{./figs/fitumap/epoch011.png}%
-    \includegraphics<13>[width=.6\textwidth]{./figs/fitumap/epoch012.png}%
-    \includegraphics<14>[width=.6\textwidth]{./figs/fitumap/epoch013.png}%
-    \includegraphics<15>[width=.6\textwidth]{./figs/fitumap/epoch014.png}%
-    \includegraphics<16>[width=.6\textwidth]{./figs/fitumap/epoch015.png}%
-    \includegraphics<17>[width=.6\textwidth]{./figs/fitumap/epoch100.png}%
+    \includegraphics<1>[width=.55\textwidth]{./figs/fitumap/epoch000.png}%
+    \includegraphics<2>[width=.55\textwidth]{./figs/fitumap/epoch001.png}%
+    \includegraphics<3>[width=.55\textwidth]{./figs/fitumap/epoch002.png}%
+    \includegraphics<4>[width=.55\textwidth]{./figs/fitumap/epoch003.png}%
+    \includegraphics<5>[width=.55\textwidth]{./figs/fitumap/epoch004.png}%
+    \includegraphics<6>[width=.55\textwidth]{./figs/fitumap/epoch005.png}%
+    \includegraphics<7>[width=.55\textwidth]{./figs/fitumap/epoch006.png}%
+    \includegraphics<8>[width=.55\textwidth]{./figs/fitumap/epoch007.png}%
+    \includegraphics<9>[width=.55\textwidth]{./figs/fitumap/epoch008.png}%
+    \includegraphics<10>[width=.55\textwidth]{./figs/fitumap/epoch009.png}%
+    \includegraphics<11>[width=.55\textwidth]{./figs/fitumap/epoch010.png}%
+    \includegraphics<12>[width=.55\textwidth]{./figs/fitumap/epoch011.png}%
+    \includegraphics<13>[width=.55\textwidth]{./figs/fitumap/epoch012.png}%
+    \includegraphics<14>[width=.55\textwidth]{./figs/fitumap/epoch013.png}%
+    \includegraphics<15>[width=.55\textwidth]{./figs/fitumap/epoch014.png}%
+    \includegraphics<16>[width=.55\textwidth]{./figs/fitumap/epoch015.png}%
+    \includegraphics<17>[width=.55\textwidth]{./figs/fitumap/epoch100.png}%
 \end{frame}
 
 \begin{frame}{Basic parameters}
@@ -363,6 +385,16 @@
 %   % \animategraphics[loop,width=4cm]{10}{gif/}{0000}{0050}
 % \end{frame}
 
+\begin{frame}{Possible traps}
+    \begin{itemize}
+        \item<1-> Hyperparameters matter (see \texttt{n\_neighbors} examples)
+        \item<2-> Distances mean nothing (all first neighbors are at 1 !)
+        \item<3-> Cluster size mean nothing (uniformization)
+        \item<4-> In high dimension, noise can have shape (carefull with \texttt{n\_neighbors} values)
+        \item<5-> Algorithm is stochastic
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{A lot of options !}
     \centering
     \vspace{-.2cm}
@@ -371,11 +403,26 @@
 
 \begin{frame}{Useful ressources}
 
+\begin{columns}
+\begin{column}{0.5\textwidth}
 \begin{itemize}
-    \item \texttt{scikit-learn} docs !
+    \item \href{https://umap-learn.readthedocs.io/en/latest/}{\texttt{umap-learn}}
+    \item \href{https://scikit-learn.org/stable/api/sklearn.manifold.html}{\texttt{scikit-learn}}
+    \item \href{https://topos.institute/blog/2024-04-05-understanding-umap/}{Topos institute - understanding UMAP}
+    \item \href{https://pair-code.github.io/understanding-umap/}{Google PAIR - understanding UMAP}
+\end{itemize}
+\end{column}
+
+\begin{column}{0.5\textwidth}
+    on YouTube:
+\begin{itemize}
+    \item \href{https://www.youtube.com/watch?v=nq6iPZVUxZU}{Talk by Leland McInnes}
     \item \href{https://www.youtube.com/@Deepia-ls2fo}{deepia}
     \item \href{https://www.youtube.com/@statquest}{StatQuest}
+    \item \href{https://www.youtube.com/watch?v=iPV7mLaFWyE}{DeepFindr}
 \end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}[plain]
