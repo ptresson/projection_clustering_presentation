@@ -264,21 +264,37 @@
 
 \begin{frame}{Optimization}
 \centering
-    \includegraphics<1>[width=.6\textwidth]{./figs/fitumap/epoch0.png}%
-    \includegraphics<2>[width=.6\textwidth]{./figs/fitumap/epoch1.png}%
-    \includegraphics<3>[width=.6\textwidth]{./figs/fitumap/epoch2.png}%
-    \includegraphics<4>[width=.6\textwidth]{./figs/fitumap/epoch3.png}%
-    \includegraphics<5>[width=.6\textwidth]{./figs/fitumap/epoch4.png}%
-    \includegraphics<6>[width=.6\textwidth]{./figs/fitumap/epoch5.png}%
+    \includegraphics<1>[width=.6\textwidth]{./figs/fitumap/epoch000.png}%
+    \includegraphics<2>[width=.6\textwidth]{./figs/fitumap/epoch001.png}%
+    \includegraphics<3>[width=.6\textwidth]{./figs/fitumap/epoch002.png}%
+    \includegraphics<4>[width=.6\textwidth]{./figs/fitumap/epoch003.png}%
+    \includegraphics<5>[width=.6\textwidth]{./figs/fitumap/epoch004.png}%
+    \includegraphics<6>[width=.6\textwidth]{./figs/fitumap/epoch005.png}%
+    \includegraphics<7>[width=.6\textwidth]{./figs/fitumap/epoch006.png}%
+    \includegraphics<8>[width=.6\textwidth]{./figs/fitumap/epoch007.png}%
+    \includegraphics<9>[width=.6\textwidth]{./figs/fitumap/epoch008.png}%
+    \includegraphics<10>[width=.6\textwidth]{./figs/fitumap/epoch009.png}%
+    \includegraphics<11>[width=.6\textwidth]{./figs/fitumap/epoch010.png}%
+    \includegraphics<12>[width=.6\textwidth]{./figs/fitumap/epoch011.png}%
+    \includegraphics<13>[width=.6\textwidth]{./figs/fitumap/epoch012.png}%
+    \includegraphics<14>[width=.6\textwidth]{./figs/fitumap/epoch013.png}%
+    \includegraphics<15>[width=.6\textwidth]{./figs/fitumap/epoch014.png}%
+    \includegraphics<16>[width=.6\textwidth]{./figs/fitumap/epoch015.png}%
+    \includegraphics<17>[width=.6\textwidth]{./figs/fitumap/epoch100.png}%
 \end{frame}
 
-\begin{frame}{Hyper-parameters}
+\begin{frame}{Basic parameters}
 \centering
-\begin{itemize}
-    \item number of neighbors
-    \item min distance
-    \item distance metric
-\end{itemize}
+        \begin{tabular}{|l|l|l|}
+            \hline
+            \textbf{Parameter}      & \textbf{Meaning}      & \textbf{Default value} \\
+            \hline
+            \texttt{n\_components} & target dimensions          & \texttt{2}\\
+            \texttt{n\_neighbors}  & influence of neighborhoods & \texttt{15}\\
+            \texttt{min\_dist}     & how points are packed      & \texttt{0.1}\\
+            \texttt{metric}        & how distance is measured   & \texttt{euclidian}\\
+            \hline
+        \end{tabular}
 \end{frame}
 
 \begin{frame}{Influence of the number of neighbors}
