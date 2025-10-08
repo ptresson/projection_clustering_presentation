@@ -347,23 +347,22 @@
 
 \begin{frame}{Optimization}
 \centering
-    \includegraphics<1>[width=.55\textwidth]{./figs/fitumap/epoch000.png}%
-    \includegraphics<2>[width=.55\textwidth]{./figs/fitumap/epoch001.png}%
-    \includegraphics<3>[width=.55\textwidth]{./figs/fitumap/epoch002.png}%
-    \includegraphics<4>[width=.55\textwidth]{./figs/fitumap/epoch003.png}%
-    \includegraphics<5>[width=.55\textwidth]{./figs/fitumap/epoch004.png}%
-    \includegraphics<6>[width=.55\textwidth]{./figs/fitumap/epoch005.png}%
-    \includegraphics<7>[width=.55\textwidth]{./figs/fitumap/epoch006.png}%
-    \includegraphics<8>[width=.55\textwidth]{./figs/fitumap/epoch007.png}%
-    \includegraphics<9>[width=.55\textwidth]{./figs/fitumap/epoch008.png}%
-    \includegraphics<10>[width=.55\textwidth]{./figs/fitumap/epoch009.png}%
-    \includegraphics<11>[width=.55\textwidth]{./figs/fitumap/epoch010.png}%
-    \includegraphics<12>[width=.55\textwidth]{./figs/fitumap/epoch011.png}%
-    \includegraphics<13>[width=.55\textwidth]{./figs/fitumap/epoch012.png}%
-    \includegraphics<14>[width=.55\textwidth]{./figs/fitumap/epoch013.png}%
-    \includegraphics<15>[width=.55\textwidth]{./figs/fitumap/epoch014.png}%
-    \includegraphics<16>[width=.55\textwidth]{./figs/fitumap/epoch015.png}%
-    \includegraphics<17>[width=.55\textwidth]{./figs/fitumap/epoch100.png}%
+    \includegraphics<1>[width=.55\textwidth]{./figs/fitumap/epoch001.png}%
+    \includegraphics<2>[width=.55\textwidth]{./figs/fitumap/epoch002.png}%
+    \includegraphics<3>[width=.55\textwidth]{./figs/fitumap/epoch003.png}%
+    \includegraphics<4>[width=.55\textwidth]{./figs/fitumap/epoch004.png}%
+    \includegraphics<5>[width=.55\textwidth]{./figs/fitumap/epoch005.png}%
+    \includegraphics<6>[width=.55\textwidth]{./figs/fitumap/epoch006.png}%
+    \includegraphics<7>[width=.55\textwidth]{./figs/fitumap/epoch007.png}%
+    \includegraphics<8>[width=.55\textwidth]{./figs/fitumap/epoch008.png}%
+    \includegraphics<9>[width=.55\textwidth]{./figs/fitumap/epoch009.png}%
+    \includegraphics<10>[width=.55\textwidth]{./figs/fitumap/epoch010.png}%
+    \includegraphics<11>[width=.55\textwidth]{./figs/fitumap/epoch011.png}%
+    \includegraphics<12>[width=.55\textwidth]{./figs/fitumap/epoch012.png}%
+    \includegraphics<13>[width=.55\textwidth]{./figs/fitumap/epoch013.png}%
+    \includegraphics<14>[width=.55\textwidth]{./figs/fitumap/epoch014.png}%
+    \includegraphics<15>[width=.55\textwidth]{./figs/fitumap/epoch015.png}%
+    \includegraphics<16>[width=.55\textwidth]{./figs/fitumap/epoch100.png}%
 \end{frame}
 
 \begin{frame}{Basic parameters}
@@ -460,8 +459,8 @@
 \begin{frame}{Possible traps}
     \begin{itemize}
         \item<1-> Hyperparameters matter (see \texttt{n\_neighbors} examples)
-        \item<2-> Distances mean nothing (all first neighbors are at 1 !)
-        \item<3-> Cluster size mean nothing (uniformization)
+        \item<2-> Absolute distances mean nothing (relative do in some way)
+        \item<3-> Cluster sizes mean nothing (uniformization)
         \item<4-> In high dimension, noise can have shape (carefull with \texttt{n\_neighbors} values)
         \item<5-> Algorithm is stochastic
     \end{itemize}
@@ -483,6 +482,31 @@
     \centering
     \includegraphics[height=.8\textheight]{./figs/examples/syllabus.png}
     \nonumbernote{\href{https://galaxy.opensyllabus.org/}{Open Syllabus Galaxy}} 
+\end{frame}
+
+\begin{frame}{Cool examples}
+\begin{columns}
+    \begin{column}{.7\textwidth}
+    \centering
+    \includegraphics<1>[width=.5\textwidth]{./figs/examples/umap_pn.png}%
+    \includegraphics<2>[width=.5\textwidth]{./figs/examples/umap_pn_col.png}%
+    \end{column}
+    \begin{column}{.3\textwidth}
+    \includegraphics[width=.7\textwidth]{./figs/examples/herb.png}
+
+        \vspace{.5cm}
+
+    \includegraphics[width=.7\textwidth]{./figs/examples/photos.png}
+    \centering
+    \end{column}
+    \nonumbernote{H. Goëau - TDWG 2021} 
+\end{columns}
+\end{frame}
+
+\begin{frame}{Cool examples}
+    \centering
+    \includegraphics[height=.8\textheight]{./figs/examples/colin.png}
+    \nonumbernote{C. Prieur PhD thesis} 
 \end{frame}
 
 
