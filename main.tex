@@ -67,11 +67,40 @@
 \addlogo{./logos/IRD_banner.png}
 \addlogo{./logos/AMAP_banner.png}
 \addlogo{./logos/paul_va.jpg}
+
 \maketitle
 
 \usebackgroundtemplate{}
 
 % \section{Introduction}
+\begin{frame}
+\centering
+    \textbf{\large Why reduce dimensions ?}
+\end{frame}
+
+\begin{frame}{Why reduce dimensions ?}
+    \begin{itemize}
+        \item Visualization and exploration
+        \item Dimensions can be redundant
+        \item Dimensions can be non-informative
+        \item \textbf{Curse of dimensionality}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Curse of dimensionality}
+    \centering
+    \includegraphics[width=.6\textwidth]{./figs/dimensionality_distance.png}
+    \nonumbernote{\href{https://speakerdeck.com/lmcinnes/umap-uniform-manifold-approximation-and-projection-for-dimension-reduction?slide=37}{Leland McInnes slides}}
+\end{frame}
+
+\begin{frame}{Working with less dimensions can help}
+    \begin{itemize}
+        \item Clustering
+        \item Outlier detection
+        \item Scaling up
+        \item ...
+    \end{itemize}
+\end{frame}
 
 \begin{frame}{Visualize what is happening in higher dimensions}
     \centering
@@ -84,11 +113,25 @@
 
 \begin{frame}{Visualize what is happening in higher dimensions}
     \centering
-        \includegraphics<1>[width=0.5\textwidth]{./figs/mnist.png}%
-        \includegraphics<2>[width=0.5\textwidth]{./figs/mnist_pairplot.png}%
-        \includegraphics<3>[width=0.5\textwidth]{./figs/mnist_umap.png}%
+        \includegraphics[width=0.5\textwidth]{./figs/mnist.png}%
 \end{frame}
 
+\begin{frame}{Visualize what is happening in higher dimensions}
+    \centering
+        \includegraphics[width=0.4\textwidth]{./figs/digit3.png}%
+
+        % \begin{tabular}{|l|r|c|r|r|r|c|r|}
+        \begin{tabular}{|l|rcrrrcr|}
+            \hline
+            label & pixel 001 & $\dots$ & pixel 350 & pixel 351 & pixel 352 & $\dots$ & pixel 728 \\
+            \hline
+            3 & 0 & & 253 & 253 & 187 & & 0 \\
+            1 & 0 & & 228 & 245 & 51 & & 0 \\
+            $\vdots$ & $\vdots$ & & $\vdots$ & $\vdots$ & $\vdots$ & & $\vdots$ \\
+            % \hline
+        \end{tabular}
+    
+\end{frame}
 
 \begin{frame}{PCA}
 \centering
@@ -135,6 +178,19 @@
     \end{figure}
 \end{frame}
 
+\begin{frame}{What is a manifold ?}
+    \centering
+    \includegraphics[width=.9\textwidth]{./figs/manifold_def.png}
+\end{frame}
+
+\begin{frame}{Non linear data}
+    \begin{figure}
+    \centering
+    \includegraphics[width=.55\textwidth]{./figs/mnist_umap.png}
+    % \caption{\tiny Figure from \cite{du2019dimensionality}}
+    \end{figure}
+\end{frame}
+
 
 % \begin{frame}{Non linear data}
 %     \centering
@@ -160,6 +216,11 @@
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \centering
+    \textbf{\large How does UMAP work ?}
+\end{frame}
+
 \begin{frame}{Mammoth example}
     \centering
     \vspace{-.9cm}
@@ -169,7 +230,7 @@
     \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}}
 \end{frame}
 
-\begin{frame}{Mammoth example - PCA}
+\begin{frame}{PCA}
     \centering
     \vspace{-.5cm}
     \includegraphics[width=.6\textwidth]{./figs/mammoth/pca.png}
