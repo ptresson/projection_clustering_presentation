@@ -10,23 +10,24 @@
 \title{Projections and clusterings}
 \subtitle{AI for ecologists}
 \author[Paul Tresson]{Paul Tresson}
-\date{21/05/25} % or whatever the date you are presenting in is
+\date{} % or whatever the date you are presenting in is
 % \institute[Institut de Recherche pour le Développement]{UMR AMAP}
 
 %\copyrightnotice{Published by Institut de Recherche pour le Développement, with permission}
 
-% %% to add a background image for the title slide, uncomment here
-% \usebackgroundtemplate{
-%   \tikz[overlay, remember picture] \node[at=(current page.center)] {
-%     \includegraphics[width=\paperwidth,height=\paperheight]{example-image-a}
-%   };
-% }
+%% to add a background image for the title slide, uncomment here
+\usebackgroundtemplate{
+  \tikz[overlay, remember picture] \node[at=(current page.center)] {
+    \includegraphics[width=\paperwidth,height=\paperheight]{./title.png}
+  };
+}
 \definecolor{C0}{rgb}{0.0,0.3,0.6}
 \definecolor{A0}{rgb}{1.0,0.0,0.0}
 \definecolor{B0}{rgb}{1.0,0.4,0.0}
 \definecolor{A1}{rgb}{1.0,0.1,0.0}
 \definecolor{C1}{rgb}{0.4,0.6,0.3}
 \definecolor{C2}{rgb}{0.2,0.4,0.4}
+\definecolor{fullblue}{rgb}{0,0,1}
 
 \def\tdist{%
     gamma(.5*(1+1))/(sqrt(1*pi)*gamma(.5*1))*((1+x^2/1)^(-.5*(1+1)))%
@@ -237,36 +238,9 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{UMAP : Finding high dimension graph}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\centering
-    \includegraphics<1>[width=\textwidth]{./figs/umap/1_all_points.png}%
-    \includegraphics<2>[width=\textwidth]{./figs/umap/2_sampled.png}%
-    \includegraphics<3>[width=\textwidth]{./figs/umap/3_knn.png}%
-\end{column}
-\begin{column}{0.5\textwidth}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{UMAP : Fitting low dimensional representation}
-\begin{columns}
-    \begin{column}[t]{0.5\textwidth}
-\centering
-    \includegraphics<1>[width=\textwidth]{./figs/umap/3_knn.png}%
-    \includegraphics<2>[width=\textwidth]{./figs/umap/4-1_opti.png}%
-    \includegraphics<3>[width=\textwidth]{./figs/umap/4-2_opti.png}%
-    \includegraphics<4->[width=\textwidth]{./figs/umap/4-3_opti.png}%
-\end{column}
-    \begin{column}[t]{0.5\textwidth}
-\centering
-    \includegraphics<1-4>[width=\textwidth]{./figs/umap/4-1_spectral.png}%
-    \includegraphics<5>[width=\textwidth]{./figs/umap/4-2_spectral.png}%
-    \includegraphics<6>[width=\textwidth]{./figs/umap/4-3_spectral.png}%
-    \includegraphics<7->[width=\textwidth]{./figs/umap/4-4_spectral.png}%
-\end{column}
-\end{columns}
+\begin{frame}
+    \centering
+    \textbf{\large How does UMAP work ?}
 \end{frame}
 
 \begin{frame}{Mammoth example}
@@ -274,13 +248,144 @@
     \vspace{-.9cm}
     \includegraphics<1>[width=.53\textwidth]{./figs/mammoth/3d_single.png}%
     \includegraphics<2>[width=.53\textwidth]{./figs/mammoth/3d_color.png}%
-    \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}, adatpted from \href{https://www.youtube.com/watch?v=o_cAOa5fMhE}{deepia}}
+    % \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}, adatpted from \href{https://www.youtube.com/watch?v=o_cAOa5fMhE}{deepia}}
+    \nonumbernote{\tiny \href{https://3d.si.edu/object/3d/mammuthus-primigenius-blumbach:341c96cd-f967-4540-8ed1-d3fc56d31f12}{Mammoth dataset by the Smithonian}}
 \end{frame}
 
-\begin{frame}{Mammoth example - PCA}
+\begin{frame}{PCA}
     \centering
     \vspace{-.5cm}
     \includegraphics[width=.6\textwidth]{./figs/mammoth/pca.png}
+\end{frame}
+
+\begin{frame}{Finding high dimension graph}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-color.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-sample.png}%
+    \includegraphics<3>[width=\textwidth]{./figs/steps/hd-graph.png}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\textit{Uniform} Manifold Approximation and Projection}
+    \centering
+    \includegraphics<1>[width=.7\textwidth]{./figs/documap/how_umap_works_uniform_distribution_cover.png}%
+    \includegraphics<2>[width=.7\textwidth]{./figs/documap/how_umap_works_local_metric_open_cover.png}%
+    \includegraphics<3>[width=.7\textwidth]{./figs/documap/how_umap_works_fuzzy_open_cover.png}%
+    \includegraphics<4>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_open_cover.png}%
+    \includegraphics<5>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_open_cover-eq.png}%
+    \includegraphics<6>[width=.7\textwidth]{./figs/documap/how_umap_works_raw_graph.png}%
+    \includegraphics<7>[width=.7\textwidth]{./figs/documap/how_umap_works_raw_graph-eq.png}%
+    \includegraphics<8>[width=.7\textwidth]{./figs/documap/how_umap_works_umap_graph.png}%
+    \nonumbernote{\tiny \href{https://umap-learn.readthedocs.io/en/latest/how_umap_works.html}{UMAP documentation}}
+\end{frame}
+
+% \begin{frame}
+% \begin{equation}
+% \sum_{j=1}^k \exp\left(\frac{-\max(0, d(x_i, x_{i_j}) - \rho_i)}{\sigma_i}\right) = \log_2(k)
+% \end{equation}
+% \end{frame}
+
+\begin{frame}{\textit{Uniform} Manifold Approximation and Projection}
+    \centering
+    \includegraphics[width=.5\textwidth]{./figs/umap-topos.png}%
+    \nonumbernote{\tiny \href{https://topos.institute/blog/2024-04-05-understanding-umap/}{Tim Hosgood - Understanding UMAP}}
+\end{frame}
+
+\begin{frame}{Finding high dimension graph}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-sample.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-weightedgraph.png}%
+\end{column}
+\begin{column}{0.5\textwidth}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1-4>[width=\textwidth]{./figs/steps/hd-weightedgraph.png}%
+    \includegraphics<5>[width=\textwidth]{./figs/steps/hd-pairs.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<2>[width=\textwidth]{./figs/steps/ld.png}%
+    \includegraphics<3>[width=\textwidth]{./figs/steps/ld-samples.png}%
+    \includegraphics<4>[width=\textwidth]{./figs/steps/ld-graph.png}%
+    \includegraphics<5>[width=\textwidth]{./figs/steps/ld-pairs.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Fitting low dimensional representation}
+    
+    Cross-entropy loss counting \textcolor{red}{positive} and \textcolor{fullblue}{negative} atraction forces
+
+            \begin{equation}
+                C_{UMAP} = \sum_{i \neq j} \textcolor{red}{v_{ij} \log \left( \frac{v_{ij}}{w_{ij}} \right)} + 
+                \textcolor{fullblue}{(1 - v_{ij}) \log \left( \frac{1 - v_{ij}}{1 - w_{ij}} \right)}
+                \label{eq:}
+            \end{equation}
+
+    Optimization with \textbf{Stochastic Gradient Descent}
+\end{frame}
+
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+    \includegraphics<1>[width=\textwidth]{./figs/steps/hd-pairs.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/hd-pairs2.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics<1>[width=\textwidth]{./figs/steps/ld-loss.png}%
+    \includegraphics<2>[width=\textwidth]{./figs/steps/ld-loss2.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fitting low dimensional representation}
+\begin{columns}
+    \begin{column}[t]{0.5\textwidth}
+    \includegraphics[width=.5\textwidth]{./figs/steps/hd-weightedgraph.png}%
+    \includegraphics[width=.5\textwidth]{./figs/graph_weights1.png}%
+\end{column}
+    \begin{column}[t]{0.5\textwidth}
+\centering
+    \includegraphics[width=.5\textwidth]{./figs/graph_weights2.png}%
+    \includegraphics[width=.5\textwidth]{./figs/steps/ld-graph.png}%
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Optimization}
+\centering
+    \includegraphics<1>[width=.55\textwidth]{./figs/fitumap/epoch001.png}%
+    \includegraphics<2>[width=.55\textwidth]{./figs/fitumap/epoch002.png}%
+    \includegraphics<3>[width=.55\textwidth]{./figs/fitumap/epoch003.png}%
+    \includegraphics<4>[width=.55\textwidth]{./figs/fitumap/epoch004.png}%
+    \includegraphics<5>[width=.55\textwidth]{./figs/fitumap/epoch005.png}%
+    \includegraphics<6>[width=.55\textwidth]{./figs/fitumap/epoch006.png}%
+    \includegraphics<7>[width=.55\textwidth]{./figs/fitumap/epoch007.png}%
+    \includegraphics<8>[width=.55\textwidth]{./figs/fitumap/epoch008.png}%
+    \includegraphics<9>[width=.55\textwidth]{./figs/fitumap/epoch009.png}%
+    \includegraphics<10>[width=.55\textwidth]{./figs/fitumap/epoch010.png}%
+    \includegraphics<11>[width=.55\textwidth]{./figs/fitumap/epoch011.png}%
+    \includegraphics<12>[width=.55\textwidth]{./figs/fitumap/epoch012.png}%
+    \includegraphics<13>[width=.55\textwidth]{./figs/fitumap/epoch013.png}%
+    \includegraphics<14>[width=.55\textwidth]{./figs/fitumap/epoch014.png}%
+    \includegraphics<15>[width=.55\textwidth]{./figs/fitumap/epoch015.png}%
+    \includegraphics<16>[width=.55\textwidth]{./figs/fitumap/epoch100.png}%
 \end{frame}
 
 \begin{frame}{Mammoth example - UMAP}
