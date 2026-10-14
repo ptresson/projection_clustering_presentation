@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{irdbeamer}[IRD Beamer Presentation Template]
-\LoadClass[aspectratio = 169]{beamer}
+\LoadClass[usenames,dvipsnames,aspectratio = 169]{beamer}
 \usetheme{metropolis}
 
 % Metropolis global options
@@ -8,12 +8,12 @@
 \metroset{sectionpage = progressbar}
 \metroset{subsectionpage = progressbar}
 % \metroset{progressbar = frametitle}
-\metroset{progressbar = head}
+% \metroset{progressbar = head}
 \metroset{numbering = fraction}
 \metroset{block = fill}
 
 % Progress bar thickness
-\setlength{\metropolis@titleseparator@linewidth}{2pt}
+\setlength{\metropolis@titleseparator@linewidth}{0pt}
 \setlength{\metropolis@progressonsectionpage@linewidth}{2pt}
 \setlength{\metropolis@progressinheadfoot@linewidth}{2pt}
 
@@ -315,7 +315,7 @@
         \vfill%
         \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi%
         \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi%
-        % \usebeamertemplate*{title separator}%
+        \usebeamertemplate*{title separator}%
         \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi%
         \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi%
         \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi%
